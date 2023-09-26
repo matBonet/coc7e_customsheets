@@ -62,10 +62,11 @@
         {"title": "Appraise", "percentage":"05%", "checkbox":true, "subtitle":""},
         {"title": "Archaeology", "percentage":"01%", "checkbox":true, "subtitle":""},
         {"title": "", "percentage":"05%", "checkbox":true, "subtitle":"Art/Craft [base]"},
+        {"title": "", "percentage":"05%", "checkbox":true, "subtitle":"Art/Craft [base]"},
+        {"title": "", "percentage":"05%", "checkbox":true, "subtitle":"Art/Craft [base]"},
         {"title": "Charm", "percentage":"APP/3", "checkbox":true, "subtitle":""},
         {"title": "Athleticism", "percentage":"20%", "checkbox":true, "subtitle":"Climb + Jump + Swim"},
         {"title": "Credit Rating*", "percentage":"00%", "checkbox":false, "subtitle":""},
-        {"title": "Cthulhu Mythos", "percentage":"00%", "checkbox":false, "subtitle":""},
         {"title": "Disguise", "percentage":"05%", "checkbox":true, "subtitle":""},
         {"title": "Dodge", "percentage":"half DEX", "checkbox":true, "subtitle":""},
         {"title": "Drive Auto", "percentage":"20%", "checkbox":true, "subtitle":""},
@@ -81,9 +82,9 @@
         {"title": "First Aid³", "percentage":"30%", "checkbox":true, "subtitle":""},
         {"title": "History", "percentage":"05%", "checkbox":true, "subtitle":""},
         {"title": "Intimidate", "percentage":"15%", "checkbox":true, "subtitle":""},
-        {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Language (Other)"},
-        {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Language (Other)"},
         {"title": "", "percentage":"EDU", "checkbox":true, "subtitle":"Language (Own)"},
+        {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Language %LAST_ALPHABETICALLY%(Other)"},
+        {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Language %LAST_ALPHABETICALLY%(Other)"},
         {"title": "Law", "percentage":"05%", "checkbox":true, "subtitle":""},
         {"title": "Library Use", "percentage":"20%", "checkbox":true, "subtitle":""},
         {"title": "Listen", "percentage":"20%", "checkbox":true, "subtitle":""},
@@ -95,9 +96,10 @@
 
         {"title": "Persuade", "percentage":"10%", "checkbox":true, "subtitle":""},
         {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Pilot [base]"},
+        {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Pilot [base]"},
         {"title": "Psychoanalysis⁴", "percentage":"01%", "checkbox":true, "subtitle":""},
-        {"title": "Read Intentions⁴", "percentage":"10%", "checkbox":true, "subtitle":""},
-        {"title": "Ride", "percentage":"05%", "checkbox":true, "subtitle":""},
+        {"title": "Read Intentions⁴", "percentage":"10%", "checkbox":true, "subtitle":"Psychology"},
+        {"title": "Ride Animal", "percentage":"05%", "checkbox":true, "subtitle":""},
         {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Science [base]"},
         {"title": "", "percentage":"01%", "checkbox":true, "subtitle":"Science [base]"},
         {"title": "Sleight of Hand", "percentage":"10%", "checkbox":true, "subtitle":""},
@@ -105,7 +107,9 @@
         {"title": "Stealth", "percentage":"20%", "checkbox":true, "subtitle":""},
         {"title": "", "percentage":"10%", "checkbox":true, "subtitle":"Survival [base]"},
         {"title": "", "percentage":"10%", "checkbox":true, "subtitle":"Survival [base]"},
-        {"title": "Throw", "percentage":"20%", "checkbox":true, "subtitle":""}
+        {"title": "Throw", "percentage":"20%", "checkbox":true, "subtitle":""},
+        {"title": "Track", "percentage":"10%", "checkbox":true, "subtitle":""},
+        {"title": "%LAST_ALPHABETICALLY%Țȑṵ̈̌ɇ K͊ňo̧͒͜ẅl҇ɇd͋g͜͜͜͜͜ɘ̈́", "percentage":"00%", "checkbox":false, "subtitle":"Cthulhu Mythos", "font":"Arial"}
 
     ]
 }

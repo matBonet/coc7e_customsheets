@@ -1,5 +1,6 @@
 import json
 import sys
+import io
 
 from lxml import etree
 
@@ -20,30 +21,15 @@ def order_skill(skill_dict):
     else:
         return PUSH_TO_END_STRING
 
-if __name__=="__main__":
-    template = sys.argv[1]
-    parameters = sys.argv[2]
-    output = sys.argv[3]
-
-    # Loads configuration
-    with open(parameters, 'r') as f_json:
-        data = json.load(f_json)
-
+def make_pdf(template_tree, sheet_data, output_filename=None):
+    data = sheet_data
     # Sorts skills alphabetically by title (or subtitle) if requested
     if data["SORT_ALPHABETICAL"]:
         data['SKILLS'].sort(key=order_skill)
 
-    import pprint
-    pprint.pprint(data['SKILLS'])
-
-    # Loads template
-    with open(template, 'r') as f_template:
-        p = etree.XMLParser(ns_clean=True, recover=True, encoding='utf-8')
-        root = etree.fromstring(f_template.read().encode('utf-8'), parser=p)
-
     # Substitutes keywords
     for keyword, value in data['KEYWORDS'].items():
-        for match in root.findall(f".//base:tspan[.='{keyword}']", NAMESPACES):
+        for match in template_tree.findall(f".//base:tspan[.='{keyword}']", NAMESPACES):
             match.text = value
 
     # Substitutes skill data
@@ -61,30 +47,56 @@ if __name__=="__main__":
             else:
                 skill_subtitle = f"{subtitle_clean}"
             skill_box = skill['checkbox']
+            skill_font = skill.get("font", None)
+
         except IndexError:
             skill_title = EMPTY_SKILL_TITLE
             skill_subtitle = ""
             skill_box = True
+            skill_font = None
 
-        # Alters title
-        title = root.find(f".//base:tspan[.='%skill_{i}%']", NAMESPACES)
+        # Alters title and font
+        title = template_tree.find(f".//base:tspan[.='%skill_{i}%']", NAMESPACES)
         title.text = skill_title
+        if skill_font:
+            title.find("..").set("style", title.find("..").attrib["style"].replace("Bookmania", skill_font))
 
         # Alters subtitle
-        subtitle = root.find(
+        subtitle = template_tree.find(
             f".//base:tspan[.='%skill_{i}_subtitle%']",
             NAMESPACES
         )
         subtitle.text = skill_subtitle
 
         # Remove checkbox if needed
-        checkbox = root.find(
+        checkbox = template_tree.find(
             f".//base:desc[.='%checkbox_skill_{i}%']/...",
             NAMESPACES
         )
         checkbox.set('visibility', 'visible' if skill_box else 'hidden')
 
-    cairosvg.svg2pdf(
-        bytestring=etree.tostring(root, encoding="utf-8"),
-        write_to=output
-    )
+    if output_filename:
+        cairosvg.svg2pdf(
+            bytestring=etree.tostring(template_tree, encoding="utf-8"),
+            write_to=output_filename
+        )
+    else:
+        # Create memory file to store conversion, then return bytestring
+        in_memory_file = io.BytesIO()
+        cairosvg.svg2pdf(
+            bytestring=etree.tostring(template_tree, encoding="utf-8"),
+            write_to=in_memory_file
+        )
+        return in_memory_file
+
+if __name__=="__main__":
+    # Loads template
+    with open(sys.argv[1], 'r') as f_template:
+        p = etree.XMLParser(ns_clean=True, recover=True, encoding='utf-8')
+        root = etree.fromstring(f_template.read().encode('utf-8'), parser=p)
+
+    # Loads translation data
+    with open(sys.argv[2], 'r') as f_data:
+        data = json.load(f_data)
+
+    make_pdf(root, data, sys.argv[3])

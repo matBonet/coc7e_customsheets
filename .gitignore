@@ -1,2 +1,5 @@
 .vscode
 *.pdf
+.env
+outputs
+aws_deploy
