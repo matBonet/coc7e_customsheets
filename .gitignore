@@ -1,5 +1,5 @@
 .vscode
 *.pdf
 .env
+env
 outputs
-aws_deploy
