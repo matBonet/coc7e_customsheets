@@ -6,7 +6,8 @@ Simple script to make fully customizable Call of Cthulhu 7th Edition Character S
 
 ``` bash
 pip install -r requirements.txt
-sudo apt install libcairo2
+sudo apt install libcairo2 # Ubuntu/Debian
+brew install cairo # macOS
 ```
 
 Remember to install the required fonts, listed in the ```templates/font_dependencies.yaml``` file.

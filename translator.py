@@ -1,6 +1,7 @@
 import json
 import sys
 import io
+import os
 
 from lxml import etree
 
@@ -76,6 +77,8 @@ def make_pdf(template_tree, sheet_data, output_filename=None):
         checkbox.set('visibility', 'visible' if skill_box else 'hidden')
 
     if output_filename:
+        if not os.path.exists(os.path.dirname(output_filename)):
+            os.makedirs(os.path.dirname(output_filename), exist_ok=True)
         cairosvg.svg2pdf(
             bytestring=etree.tostring(template_tree, encoding="utf-8"),
             write_to=output_filename

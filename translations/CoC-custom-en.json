@@ -109,7 +109,7 @@
         {"title": "", "percentage":"10%", "checkbox":true, "subtitle":"Survival [base]"},
         {"title": "Throw", "percentage":"20%", "checkbox":true, "subtitle":""},
         {"title": "Track", "percentage":"10%", "checkbox":true, "subtitle":""},
-        {"title": "%LAST_ALPHABETICALLY%Țȑṵ̈̌ɇ K͊ňo̧͒͜ẅl҇ɇd͋g͜͜͜͜͜ɘ̈́", "percentage":"00%", "checkbox":false, "subtitle":"Cthulhu Mythos", "font":"Arial"}
+        {"title": "%LAST_ALPHABETICALLY%Țȑṵ̈̌ɇ K͊ňo̧͒͜ẅlɇd͋g͜͜͜͜͜ɘ̈́", "percentage":"00%", "checkbox":false, "subtitle":"Cthulhu Mythos", "font":"Arial"}
 
     ]
 }
