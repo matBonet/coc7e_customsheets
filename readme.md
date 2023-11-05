@@ -20,6 +20,8 @@ python3 translator.py {template_path} {parameter_path} {output_path}
 
 Example:
 
+![plot](./examples/custom-CoC-en.png)
+
 ```bash
-python3 translator.py templates/coc7eanniversary_firstpage.svg translations/CoC-en.json "CoC 7e Custom Sheet (en)"
+python3 translator.py examples/template-CoC.svg examples/translation-CoC-custom-en.json "local/custom-CoC-en.pdf"
 ```

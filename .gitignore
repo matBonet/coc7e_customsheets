@@ -1,5 +1,4 @@
 .vscode
-*.pdf
-.env
 env
-outputs
+*.pdf
+local/*
